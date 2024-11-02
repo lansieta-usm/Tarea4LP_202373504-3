@@ -1,7 +1,7 @@
 #lang scheme
 
-(define (exponenciacion base exponente)
-    (define (auxiliar base exponente resultado)
+(define (exponenciacion base exponente) ;; Recibe una base y un exponente... Retorna base^exponente
+    (define (auxiliar base exponente resultado) ;; Implementa la lógica de la exponenciación de manera recursiva
         (if (= exponente 0)
             resultado
         ;else
@@ -11,16 +11,16 @@
     (auxiliar base exponente 1)
 )
 
-(define (factorial n)
+(define (factorial n) ;; Recibe un número y lo convierte en su valor factorial
     (if (= n 0)
         1
     ;else
-    (* n (factorial (- n 1)))
+        (* n (factorial (- n 1)))
     )
 )
 
-(define (taylorSenoSimple n x)
-    (let recursivaSin ((i 0))
+(define (taylorSenoSimple n x) ;; Implementa la serie de Taylor del seno de "x" desde 0 hasta "n" 
+    (let recursivaSin ((i 0)) ;; Implementa la lógica de la sumatoria usando recursión simple, "i" es el número de iteraciones que se incrementa hasta llegar a "n"
         (if (= i n)
             (let* (
                 (signo (if (even? i) 1 -1))
@@ -29,6 +29,7 @@
                 )
             actual
             )
+        ;else
             (let* (
                 (signo (if (even? i) 1 -1))
                 (exponente (+ (* 2 i) 1))
@@ -40,8 +41,8 @@
     )
 )
 
-(define (taylorCosenoCola n x)
-    (let recursivaCos ((resultado 0) (i 0))
+(define (taylorCosenoCola n x) ;; Implementa la serie de Taylor del coseno de "x" desde 0 hasta "n"
+    (let recursivaCos ((resultado 0) (i 0)) ;; Implementa la lógica de la sumatoria usando recursión de cola, "i" es el número de iteraciones que se incrementa hasta llegar a "n"
         (let* (
             (signo (if (even? i) 1 -1))
             (exponente (* 2 i))
