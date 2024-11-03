@@ -14,3 +14,4 @@ En fin, creo que es bastante más comodo testear la tarea desde la terminal... S
 
 Consideraciones adicionales:
 P2: Hay un pequeño márgen de error en la función Seno (en el peor caso, son únicamente los últimos 5 decimales los equivocados). En todo caso, creo poder asegurar que la exactitud en ambas funciones es de 10^(-9) o más decimales.
+GENERAL: A modo de guía para mí mismo, y para que el proceso de programación y aprendizaje del lenguaje fuese más "amigable"... ORDENÉ (hago la distinción) el código de Scheme en las 4 preguntas como sería si se siguiese el paradigma de programación imperativo. Sin embargo y tal como se pide, la lógica de los 4 programas, la implementación de las funciones y la programación en general siguen fielmente el esquema de programación funcional. A pesar de que se vea a priori que no es así.

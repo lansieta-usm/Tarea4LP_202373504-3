@@ -1,14 +1,14 @@
 #lang scheme
 
 (define (exponenciacion base exponente) ;; Recibe una base y un exponente... Retorna base^exponente
-    (define (auxiliar base exponente resultado) ;; Implementa la lógica de la exponenciación de manera recursiva
+    (define (recursivaExp base exponente resultado) ;; Implementa la lógica de la exponenciación de manera recursiva
         (if (= exponente 0)
             resultado
         ;else
-            (auxiliar base (- exponente 1) (* resultado base))
+            (recursivaExp base (- exponente 1) (* resultado base))
         )
     )
-    (auxiliar base exponente 1)
+    (recursivaExp base exponente 1)
 )
 
 (define (factorial n) ;; Recibe un número y lo convierte en su valor factorial
@@ -27,7 +27,7 @@
                 (exponente (+ (* 2 i) 1))
                 (actual (/ (* signo (exponenciacion x exponente)) (factorial exponente)))
                 )
-            actual
+                actual
             )
         ;else
             (let* (
@@ -35,7 +35,7 @@
                 (exponente (+ (* 2 i) 1))
                 (actual (/ (* signo (exponenciacion x exponente)) (factorial exponente)))
                 )
-            (+ actual (recursivaSin (+ i 1)))
+                (+ actual (recursivaSin (+ i 1)))
             )
         )
     )
@@ -48,9 +48,12 @@
             (exponente (* 2 i))
             (actual (/ (* signo (exponenciacion x exponente)) (factorial exponente)))
             )
-        (if (= i n)
-            (+ resultado actual)
-            (recursivaCos (+ resultado actual) (+ i 1))))
+            (if (= i n)
+                (+ resultado actual)
+            ;else
+                (recursivaCos (+ resultado actual) (+ i 1))
+            )
+        )
     )
 )
 
